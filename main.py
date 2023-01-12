@@ -1,3 +1,4 @@
+#Library
 import speech_recognition as sr
 import pyttsx3
 import pywhatkit
@@ -5,6 +6,7 @@ import datetime
 import wikipedia
 import pyjokes
 
+#Voice of the Assistant
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -15,7 +17,7 @@ def talk(text):
     engine.say(text)
     engine.runAndWait()
 
-
+#The Assistant wait a command
 def take_command():
     try:
         with sr.Microphone() as source:
@@ -30,7 +32,7 @@ def take_command():
         pass
     return command
 
-
+#A list of tasks of Sophia
 def run_sophia():
     command = take_command()
     print(command)
@@ -55,6 +57,6 @@ def run_sophia():
     else:
         talk('Please say the command again.')
 
-
+#Call the function run_sophia()
 while True:
     run_sophia()
